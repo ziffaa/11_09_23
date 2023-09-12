@@ -13,12 +13,12 @@ Laptop::Laptop(const char* model, const char* color, const CPU&  cpu1, const SSD
 	this->color = new char[strlen(color) + 1];
 	strcpy_s(this->color, strlen(color) + 1, color);
 
-	price = cpu.getPrice() + ssd.getPrice() + gpu.getPrice() + ram.getPrice();
-
 	this->cpu = cpu1;
 	this->gpu = gpu1;
 	this->ssd = ssd1;
 	this->ram = ram1;
+
+	price = cpu.getPrice() + ssd.getPrice() + gpu.getPrice() + ram.getPrice();
 
 	laptopCount++;
 }
