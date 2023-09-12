@@ -12,4 +12,5 @@ int main()
 
 	Laptop laptop1("laptop1", "red", cpu1, ssd1, gpu1, ram1);
 	laptop1.printLaptop();
+	cout << "\nLaptop Count: " << Laptop::getLaptopCount() << endl;
 }

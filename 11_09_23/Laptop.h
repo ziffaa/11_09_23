@@ -13,10 +13,12 @@ class Laptop
 	char* model;
 	char* color;
 	double price;
+	static int laptopCount;
 public:
 	Laptop(const char*, const char*, const CPU&, const SSD&, const GPU&, const RAM&);
 	Laptop();
 	Laptop(const Laptop&);
 	~Laptop();
 	void printLaptop();
+	static int getLaptopCount();
 };

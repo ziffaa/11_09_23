@@ -3,6 +3,8 @@
 
 using namespace std;
 
+int Laptop::laptopCount = 0;
+
 Laptop::Laptop(const char* model, const char* color, const CPU&  cpu1, const SSD& ssd1, const GPU& gpu1, const RAM& ram1)
 {
 	this->model = new char[strlen(model) + 1];
@@ -17,12 +19,16 @@ Laptop::Laptop(const char* model, const char* color, const CPU&  cpu1, const SSD
 	this->gpu = gpu1;
 	this->ssd = ssd1;
 	this->ram = ram1;
+
+	laptopCount++;
 }
 Laptop::Laptop()
 {
 	model = nullptr;
 	color = nullptr;
 	price = 0;
+
+	laptopCount++;
 }
 Laptop::Laptop(const Laptop& b)
 {
@@ -35,11 +41,15 @@ Laptop::Laptop(const Laptop& b)
 	gpu = b.gpu;
 	ram = b.ram;
 	ssd = b.ssd;
+
+	laptopCount++;
 }
 Laptop::~Laptop()
 {
 	delete[] model;
 	delete[] color;
+
+	laptopCount--;
 }
 void Laptop::printLaptop()
 {
@@ -54,4 +64,9 @@ void Laptop::printLaptop()
 	ram.printRAM();
 	cout << endl;
 	cout << "Price: " << price << endl;
+}
+
+int Laptop::getLaptopCount()
+{
+	return laptopCount;
 }
